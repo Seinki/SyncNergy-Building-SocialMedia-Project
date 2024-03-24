@@ -1,10 +1,13 @@
 import {
   EditOutlined,
+  Interests,
   LocationOnOutlined,
   ManageAccountsOutlined,
+  Visibility,
   WorkOutlineOutlined,
 } from "@mui/icons-material";
 import { Box, Divider, Typography, useTheme } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -98,19 +101,60 @@ const UserWidget = ({ userId, picturePath }) => {
       <Divider />
 
       {/* THIRD ROW */}
-      <Box p="1rem 0">
+      {/* <Box p="1rem 0">
         <FlexBetween mb="0.5rem">
-          <Typography color={medium}>Who&apos;s viewed your profile</Typography>
+          <Typography color={medium}>
+            <VisibilityIcon fontSize="large" sx={{ color: main }} />
+          </Typography>
           <Typography color={main} fontWeight="500">
             {viewedProfile}
           </Typography>
         </FlexBetween>
         <FlexBetween>
-          <Typography color={medium}>Impressions of your post</Typography>
+          <Typography color={medium}>
+            <InterestsIcon fontSize="large" sx={{ color: main }} />
+          </Typography>
           <Typography color={main} fontWeight="500">
             {impressions}
           </Typography>
         </FlexBetween>
+      </Box> */}
+
+      <Box p="1rem 0" display="flex" justifyContent="space-evenly">
+        <Box>
+          <Typography color={medium}>
+            <Tooltip title="Profile viewed" placement="top" arrow>
+              <Visibility
+                fontSize="large"
+                sx={{
+                  color: main,
+                  cursor: "pointer",
+                  "& hover": { color: dark },
+                }}
+              />
+            </Tooltip>
+          </Typography>
+          <Typography color={main} fontWeight="500">
+            {viewedProfile}
+          </Typography>
+        </Box>
+        <Box>
+          <Typography color={medium}>
+            <Tooltip title="Viewed posts" placement="top" arrow>
+              <Interests
+                fontSize="large"
+                sx={{
+                  color: main,
+                  cursor: "pointer",
+                  "& hover": { color: dark },
+                }}
+              />
+            </Tooltip>
+          </Typography>
+          <Typography color={main} fontWeight="500">
+            {impressions}
+          </Typography>
+        </Box>
       </Box>
 
       <Divider />
