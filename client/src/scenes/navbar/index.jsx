@@ -22,8 +22,9 @@ import {
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import logoDark from "../../assets/logos/logoDark.svg";
-import logoLight from "../../assets/logos/logoLight.svg";
+// import logoDark from "../../assets/logos/logoDark.svg";
+// import logoLight from "../../assets/logos/logoLight.svg";
+import logoBlue from "../../assets/logos/logoBlue.svg";
 import FlexBetween from "../../components/FlexBetween";
 import { setLogout, setMode } from "../../state";
 
@@ -43,10 +44,10 @@ const Navbar = () => {
   const alt = theme.palette.background.alt;
 
   // Get current mode from Redux store
-  const currentMode = useSelector((state) => state.mode);
+  // const currentMode = useSelector((state) => state.mode);
 
   // Determine logo based on current mode
-  const logo = currentMode === "dark" ? logoLight : logoDark;
+  // const logo = currentMode === "dark" ? logoLight : logoDark;
 
   const fullName = user ? `${user.firstName} ${user.lastName}` : "";
 
@@ -65,7 +66,12 @@ const Navbar = () => {
             },
           }}
         >
-          <img src={logo} width={150} alt="Syncnergy-logo" />
+          <img
+            src={logoBlue}
+            width={200}
+            style={{ marginTop: "0.75rem" }}
+            alt="Syncnergy-logo"
+          />
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween
